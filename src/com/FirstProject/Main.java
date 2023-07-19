@@ -6,22 +6,21 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         //Mortgage calculator
-        final byte monthsInYear = 12;
-        final byte percent = 100;
-
-        Scanner scanner = new Scanner(System.in);
 
         //get the amount
         System.out.print("Enter the required amount: ");
-        int amount = scanner.nextInt();
+        Scanner amountScanner = new Scanner (System.in);
+        Integer amount = amountScanner.nextInt();
 
         //get the anual interest rate
         System.out.print("Annual interest rate: ");
-        float monthlyInterestRate = ((scanner.nextFloat()/percent)/monthsInYear);
+        Scanner interestScanner = new Scanner(System.in);
+        Float monthlyInterestRate = ((interestScanner.nextFloat()/100)/12);
 
         //get the time (Years)
         System.out.print("Enter Periods (Years): ");
-        int periodInMonths = scanner.nextInt() *monthsInYear;
+        Scanner periodScanner = new Scanner(System.in);
+        Integer periodInMonths = (periodScanner.nextInt()*12);
 
         //get Mortgage
         float power  = (float) Math.pow((1 +monthlyInterestRate),periodInMonths);
